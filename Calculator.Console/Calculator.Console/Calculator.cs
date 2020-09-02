@@ -11,45 +11,78 @@ namespace Calculator.Console
         float firstValue;       // tworzenie pól klasy
         float secondValue;
         float result;
-        public float Add(float a, float b)      // dodawanie // argumenty do wprowadzenia przez użytkownika      
+        string sign;
+        public void SetFirstValue()     // ustawienie wartości pola firstValue
         {
-            SetFirstValue(a);        // zapisanie podanych wartości w polach obiektu
-            SetSecondValue(b);    
-            result = a + b;     
+            firstValue = Parser();
+        }
+        public void SetSecondValue()     // ustawienie wartości pola secondValue
+        {
+            secondValue = Parser();
+        }
+        public void SetSign(string _sign)
+        {
+            this.sign = _sign;
+        }
+        public void ChooseSign(string _sign)
+        {
+            SetSign(_sign);
+            if (_sign == "+")
+            {
+                Add();
+            }
+            else
+                System.Console.WriteLine("Fuck you");
+
+        }
+        public float Add()      // dodawanie      
+        {       // TEST //
+            SetSecondValue();
+            result = firstValue + secondValue;         
             return result;      // zwrot wyniku
-        }
-        public float Substract(float a, float b)        // odejmowanie
-        {
-            SetFirstValue(a);       
-            SetSecondValue(b);
-            result = a - b;
-            return result;
-        }
-        public float Multiply(float a, float b)     // mnożenie
-        {
-            SetFirstValue(a);       
-            SetSecondValue(b);
-            result = a * b;
-            return result;
-        }
-        public float Divide(float a, float b)       // dzielenie
-        {
-            SetFirstValue(a);        
-            SetSecondValue(b);
-            result = a / b;
-            return result;
-        }
-        public void SetFirstValue( float value)     // ustawienie wartości pola firstValue
-        {
-            this.firstValue = value;
-        }
-        public void SetSecondValue(float value)     // ustawienie wartości pola secondValue
-        {
-            this.secondValue = value;
-        }
-        public void ShowResult()        // z góry ustawiony znak działania nie da rady
+        }       
+        /*   public float Substract(float a, float b)        // odejmowanie
+           {
+               SetFirstValue(a);       
+               SetSecondValue(b);
+               result = a - b;
+               return result;
+           }
+           public float Multiply(float a, float b)     // mnożenie
+           {
+               SetFirstValue(a);       
+               SetSecondValue(b);
+               result = a * b;
+               return result;
+           }
+           public float Divide(float a, float b)       // dzielenie
+           {
+               SetFirstValue(a);        
+               SetSecondValue(b);
+               result = a / b;
+               return result;
+           }*/
+        public void ShowResult()        // z góry ustawiony znak działania nie da rady      
         {
             System.Console.WriteLine($"{firstValue} + {secondValue} = {result}");
+        }
+        public static float Parser()
+        {
+        labelParse:;
+            string input;
+            float number = 0;
+
+            try
+            {
+                input = System.Console.ReadLine();
+                number = float.Parse(input);
+            }
+            catch (Exception e)
+            {
+                System.Console.WriteLine("Wprowadzono niepoprawną wartość.");
+                goto labelParse;
+            }
+            return number;
         }
     }
 }
