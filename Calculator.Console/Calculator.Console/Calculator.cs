@@ -8,6 +8,7 @@ namespace Calculator.Console
 {
     class Calculator
     {       
+
         float firstValue;       // tworzenie pól klasy
         float secondValue;
         float result;
@@ -31,40 +32,43 @@ namespace Calculator.Console
             {
                 Add();
             }
+            else if (_sign == "-")
+            {
+                Substract();
+            }
             else
                 System.Console.WriteLine("Fuck you");
-
         }
         public float Add()      // dodawanie      
         {       // TEST //
             SetSecondValue();
             result = firstValue + secondValue;         
             return result;      // zwrot wyniku
-        }       
-        /*   public float Substract(float a, float b)        // odejmowanie
-           {
-               SetFirstValue(a);       
-               SetSecondValue(b);
-               result = a - b;
-               return result;
-           }
-           public float Multiply(float a, float b)     // mnożenie
-           {
-               SetFirstValue(a);       
-               SetSecondValue(b);
-               result = a * b;
-               return result;
-           }
-           public float Divide(float a, float b)       // dzielenie
-           {
-               SetFirstValue(a);        
-               SetSecondValue(b);
-               result = a / b;
-               return result;
-           }*/
+        }
+        public float Substract()      // odejmowanie      
+        {       // TEST2//
+            SetSecondValue();
+            result = firstValue - secondValue;
+            return result; 
+        }
+
+        /*  public float Multiply(float a, float b)     // mnożenie
+            {
+                SetFirstValue(a);       
+                SetSecondValue(b);
+                result = a * b;
+                return result;
+            }
+            public float Divide(float a, float b)       // dzielenie
+            {
+                SetFirstValue(a);        
+                SetSecondValue(b);
+                result = a / b;
+                return result;
+            }*/
         public void ShowResult()        // z góry ustawiony znak działania nie da rady      
         {
-            System.Console.WriteLine($"{firstValue} + {secondValue} = {result}");
+            System.Console.WriteLine($"{firstValue} {sign} {secondValue} = {result}");
         }
         public static float Parser()
         {

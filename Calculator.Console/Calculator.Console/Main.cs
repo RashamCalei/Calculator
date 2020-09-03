@@ -12,9 +12,26 @@ namespace Calculator.Console
         {
             Calculator calc = new Calculator();
             string reader;
-            calc.SetFirstValue();
-            calc.ChooseSign(reader = System.Console.ReadLine());
-            calc.ShowResult();
+            int i = 0;
+            do
+            {
+                calc.SetFirstValue();
+                calc.ChooseSign(reader = System.Console.ReadLine());
+                calc.ShowResult();
+                History hist = new History(i, calc);
+                i++;
+                if (reader == "history")
+                {
+                    hist.ShowHistory();
+                }
+                while (System.Console.ReadKey().Key != ConsoleKey.Enter) {/*wieczna pętla*/}
+                System.Console.Clear();
+                if (i == 9) 
+                {
+                    i = 0;
+                }
+                if (reader == "stop") break;
+            } while (true);
         }
     }
 }
