@@ -9,17 +9,17 @@ namespace Calculator.Console
     class Calculator
     {       
 
-        float firstValue;       // tworzenie pól klasy
-        float secondValue;
+        float firstNumber;       // tworzenie pól klasy
+        float secondNumber;
         float result;
         string sign;
-        public void SetFirstValue()     // ustawienie wartości pola firstValue
+        public void SetFirstNumber()     // ustawienie wartości pola firstValue
         {
-            firstValue = Parser();
+            firstNumber = Parser();
         }
-        public void SetSecondValue()     // ustawienie wartości pola secondValue
+        public void SetSecondNumber()     // ustawienie wartości pola secondValue
         {
-            secondValue = Parser();
+            secondNumber = Parser();
         }
         public void SetSign(string _sign)
         {
@@ -41,14 +41,14 @@ namespace Calculator.Console
         }
         public float Add()      // dodawanie      
         {       // TEST //
-            SetSecondValue();
-            result = firstValue + secondValue;         
+            SetSecondNumber();
+            result = firstNumber + secondNumber;         
             return result;      // zwrot wyniku
         }
         public float Substract()      // odejmowanie      
         {       // TEST2//
-            SetSecondValue();
-            result = firstValue - secondValue;
+            SetSecondNumber();
+            result = firstNumber - secondNumber;
             return result; 
         }
 
@@ -66,9 +66,9 @@ namespace Calculator.Console
                 result = a / b;
                 return result;
             }*/
-        public void ShowResult()        // z góry ustawiony znak działania nie da rady      
+        public void ShowResult()        // wyświetla wynik na ekran      
         {
-            System.Console.WriteLine($"{firstValue} {sign} {secondValue} = {result}");
+            System.Console.WriteLine($"{firstNumber} {sign} {secondNumber} = {result}");
         }
         public static float Parser()
         {

@@ -12,3 +12,10 @@ C:\Users\alkie\Dysk Google\C#\Projekty\Calculator\Calculator.Console\Calculator.
 C:\Users\alkie\Dysk Google\C#\Projekty\Calculator\Calculator.Console\Calculator.Console\obj\Debug\Calculator.Console.csproj.CoreCompileInputs.cache
 C:\Users\alkie\Dysk Google\C#\Projekty\Calculator\Calculator.Console\Calculator.Console\obj\Debug\Calculator.Console.exe
 C:\Users\alkie\Dysk Google\C#\Projekty\Calculator\Calculator.Console\Calculator.Console\obj\Debug\Calculator.Console.pdb
+C:\Users\Roger\Dysk Google\C#\Projekty\Calculator\Calculator.Console\Calculator.Console\bin\Debug\Calculator.Console.exe.config
+C:\Users\Roger\Dysk Google\C#\Projekty\Calculator\Calculator.Console\Calculator.Console\bin\Debug\Calculator.Console.exe
+C:\Users\Roger\Dysk Google\C#\Projekty\Calculator\Calculator.Console\Calculator.Console\bin\Debug\Calculator.Console.pdb
+C:\Users\Roger\Dysk Google\C#\Projekty\Calculator\Calculator.Console\Calculator.Console\obj\Debug\Calculator.Console.csprojAssemblyReference.cache
+C:\Users\Roger\Dysk Google\C#\Projekty\Calculator\Calculator.Console\Calculator.Console\obj\Debug\Calculator.Console.csproj.CoreCompileInputs.cache
+C:\Users\Roger\Dysk Google\C#\Projekty\Calculator\Calculator.Console\Calculator.Console\obj\Debug\Calculator.Console.exe
+C:\Users\Roger\Dysk Google\C#\Projekty\Calculator\Calculator.Console\Calculator.Console\obj\Debug\Calculator.Console.pdb
