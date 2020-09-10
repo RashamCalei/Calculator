@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Calculator.Console
 {
     class Calculator
-    {       
+    {
 
         float firstNumber;       // tworzenie pól klasy
         float secondNumber;
@@ -25,31 +25,26 @@ namespace Calculator.Console
         {
             this.sign = _sign;
         }
-        public void ChooseSign(string _sign)
+        public void ChooseSign(string _sign)        // wybór operacji na podstawie podanego znaku
         {
             SetSign(_sign);
-            if (_sign == "+")
-            {
-                Add();
-            }
-            else if (_sign == "-")
-            {
-                Substract();
-            }
-            else
-                System.Console.WriteLine("Fuck you");
+            if (_sign == "+") { Add(); }
+            else if (_sign == "-") { Substract(); }
+            // warunek aby nie wyświetlał się komunikat o błędzie przy odpaleniu historii
+            else if (_sign == "h" || _sign == "H") { System.Console.WriteLine("Historia ostatnich 10 działań:"); }
+            else { System.Console.WriteLine("Niepoprawny znak."); }
         }
-        public float Add()      // dodawanie      
-        {       // TEST //
+        public float Add()
+        {       // dodawanie
             SetSecondNumber();
-            result = firstNumber + secondNumber;         
+            result = firstNumber + secondNumber;
             return result;      // zwrot wyniku
         }
-        public float Substract()      // odejmowanie      
-        {       // TEST2//
+        public float Substract()
+        {       // odejmowanie
             SetSecondNumber();
             result = firstNumber - secondNumber;
-            return result; 
+            return result;
         }
 
         /*  public float Multiply(float a, float b)     // mnożenie
@@ -73,20 +68,27 @@ namespace Calculator.Console
         public static float Parser()
         {
         labelParse:;
-            string input;
-            float number = 0;
+            string input = System.Console.ReadLine();
+            float value = 0;
 
             try
             {
-                input = System.Console.ReadLine();
-                number = float.Parse(input);
+                    value = float.Parse(input);
             }
-            catch (Exception e)
+            catch (FormatException)
             {
                 System.Console.WriteLine("Wprowadzono niepoprawną wartość.");
                 goto labelParse;
             }
-            return number;
+            return value;
+        }
+        public static void ShowHistory(Calculator[] calcArray)      // wyświetla 10 ostatnich działań 
+        {                                                           // pobiera tablice typu Calculator jako argument
+            for (int i = 0; i < 10; i++)
+            {
+                if (calcArray[i] == null) { continue; }
+                else { calcArray[i].ShowResult(); }
+            }
         }
     }
 }
