@@ -22,13 +22,13 @@ namespace Calculator.Console
                     {
                         for (int i = 0; i < 10; i++)        // pętla for do operowania na tablicy calc
                         {
+                            calc[i] = new Calculator();     // utworzenie obiektu do pustej referencji calc[i]
                             System.Console.WriteLine("[+] Dodawanie");
                             System.Console.WriteLine("[-] Odejmowanie");
                             System.Console.WriteLine("[*] Mnożenie");
                             System.Console.WriteLine("[/] Dzielenie");
                             System.Console.WriteLine("[H] Historia działań");
                             System.Console.WriteLine("Podaj a\nWybierz operację\nPodaj b");
-                            calc[i] = new Calculator();     // utworzenie obiektu do pustej referencji calc[i]
                             calc[i].SetFirstNumber();       // podanie (i ustawienie) wartości pierwszej liczby
                             calc[i].ChooseSign(reader = System.Console.ReadLine());
                             // podanie znaku działania (przypisanie go do pola klasy sign)

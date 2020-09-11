@@ -28,10 +28,12 @@ namespace Calculator.Console
         public void ChooseSign(string _sign)        // wybór operacji na podstawie podanego znaku
         {
             SetSign(_sign);
-            if (_sign == "+") { Add(); }
-            else if (_sign == "-") { Substract(); }
             // warunek aby nie wyświetlał się komunikat o błędzie przy odpaleniu historii
-            else if (_sign == "h" || _sign == "H") { System.Console.WriteLine("Historia ostatnich 10 działań:"); }
+            if (_sign == "h" || _sign == "H") { System.Console.WriteLine("Historia ostatnich 10 działań:"); }
+            else if (_sign == "+") { Add(); }
+            else if (_sign == "-") { Substract(); }
+            else if (_sign == "*") { Multiply(); }
+            else if (_sign == "/") { Divide(); }
             else { System.Console.WriteLine("Niepoprawny znak."); }
         }
         public float Add()
@@ -47,20 +49,18 @@ namespace Calculator.Console
             return result;
         }
 
-        /*  public float Multiply(float a, float b)     // mnożenie
-            {
-                SetFirstValue(a);       
-                SetSecondValue(b);
-                result = a * b;
-                return result;
-            }
-            public float Divide(float a, float b)       // dzielenie
-            {
-                SetFirstValue(a);        
-                SetSecondValue(b);
-                result = a / b;
-                return result;
-            }*/
+        public float Multiply()
+        {       // mnożenie
+            SetSecondNumber();
+            result = firstNumber * secondNumber;
+            return result;
+        }
+        public float Divide()
+        {       // dzielenie
+            SetSecondNumber();
+            result = firstNumber / secondNumber;
+            return result;
+        }
         public void ShowResult()        // wyświetla wynik na ekran      
         {
             System.Console.WriteLine($"{firstNumber} {sign} {secondNumber} = {result}");
