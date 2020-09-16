@@ -12,23 +12,25 @@ namespace Calculator.Console
         {
             Calculator[] calc = new Calculator[10];     // utworzenie tablicy 10-elementowej typu Calculator
             string reader;      // zmienna pomocnicza do wczytywania danych z klawiatury
+
             System.Console.WriteLine("Witaj w programie Kalkulator");
             System.Console.WriteLine("[1] - Standard\n[2] - Matura\n[3] - Wyjście");
         labelMode:;
-            System.Console.Write("Podaj tryb kalkulatora:");
+            System.Console.Write("Podaj tryb kalkulatora: ");
             switch (ModeSwitcher())
             {
                 case 1:     // Standard
                     {
                         for (int i = 0; i < 10; i++)        // pętla for do operowania na tablicy calc
                         {
-                            calc[i] = new Calculator();     // utworzenie obiektu do pustej referencji calc[i]
                             System.Console.WriteLine("[+] Dodawanie");
                             System.Console.WriteLine("[-] Odejmowanie");
                             System.Console.WriteLine("[*] Mnożenie");
                             System.Console.WriteLine("[/] Dzielenie");
                             System.Console.WriteLine("[H] Historia działań");
                             System.Console.WriteLine("Podaj a\nWybierz operację\nPodaj b");
+
+                            calc[i] = new Calculator();     // utworzenie obiektu do pustej referencji calc[i]
                             calc[i].SetFirstNumber();       // podanie (i ustawienie) wartości pierwszej liczby
                             calc[i].ChooseSign(reader = System.Console.ReadLine());
                             // podanie znaku działania (przypisanie go do pola klasy sign)
@@ -36,15 +38,22 @@ namespace Calculator.Console
                             // podanie (i ustawienie) wartości drugiej liczby
                             // obliczenia i przypisanie wyniku do pola result
                             // zwrócenie wyniku
-                            if (reader == "h" || reader == "H") { Calculator.ShowHistory(calc); }
-                            calc[i].ShowResult();       // wypisanie działania na ekran celem sprawdzenia czy wszystko zadziałało
-                            while (System.Console.ReadKey().Key != ConsoleKey.Enter) {/*wieczna pętla*/}
+                            if (reader == "h" || reader == "H")     // wypisanie historii działań
+                            {
+                                Calculator.ShowHistory(calc);
+                                while (System.Console.ReadKey().Key != ConsoleKey.Enter) {/*zamrożenie ekranu*/}
+                                if (i == 9) { i = 0; }          // zabezpieczenie przed przerwaniem głównej pętli
+                                continue;       // ominięcie calc[i].ShowResult();
+                            }
+                            calc[i].ShowResult();       // wypisanie działania na ekran
+
+                            while (System.Console.ReadKey().Key != ConsoleKey.Enter) {/*zamrożenie ekranu*/}
                             System.Console.Clear();
                             if (i == 9) { i = 0; }
                         } break;
                     }
                 case 2:     // Matura
-                    { System.Console.WriteLine("Implementacja matury później"); break; }
+                    { System.Console.WriteLine("Implementacja wkrótce"); break; }
                 case 3:
                     { System.Console.WriteLine("Do widzenia!"); break; }
                 default:

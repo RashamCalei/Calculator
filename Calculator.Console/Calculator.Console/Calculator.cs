@@ -65,6 +65,15 @@ namespace Calculator.Console
         {
             System.Console.WriteLine($"{firstNumber} {sign} {secondNumber} = {result}");
         }
+        public static void ShowHistory(Calculator[] calcArray)      // wyświetla 10 ostatnich działań 
+        {                                                           // pobiera tablice typu Calculator jako argument
+            for (int i = 0; i < 10; i++)
+            {
+                if (calcArray[i] == null) { continue; }
+                else if (calcArray[i].sign == "h" || calcArray[i].sign == "H") { continue; }        // wywala obiekt z wywołania metody ShowHistory() już nie zaśmieca ekranu
+                else { calcArray[i].ShowResult(); }
+            }
+        }
         public static float Parser()
         {
         labelParse:;
@@ -81,14 +90,6 @@ namespace Calculator.Console
                 goto labelParse;
             }
             return value;
-        }
-        public static void ShowHistory(Calculator[] calcArray)      // wyświetla 10 ostatnich działań 
-        {                                                           // pobiera tablice typu Calculator jako argument
-            for (int i = 0; i < 10; i++)
-            {
-                if (calcArray[i] == null) { continue; }
-                else { calcArray[i].ShowResult(); }
-            }
         }
     }
 }
